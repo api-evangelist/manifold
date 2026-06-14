@@ -1,0 +1,234 @@
+aid: manifold
+url: https://raw.githubusercontent.com/api-evangelist/manifold/refs/heads/main/apis.yml
+name: Manifold
+kind: company
+description: >-
+  Manifold is an NFT creator tools platform that empowers artists and developers
+  to deploy their own creator-owned smart contracts, mint NFTs, and build
+  custom on-chain experiences without relying on platform-specific custody.
+  Founded in 2021, Manifold provides a no-code studio (Manifold Studio) for
+  ERC721 and ERC1155 contract deployment, open-source Creator Core smart
+  contracts, a Royalty Registry adopted by all major NFT marketplaces, and a
+  Client SDK for building custom minting dApps. The platform supports Ethereum
+  Mainnet, Base, Optimism, Shape, Apechain, and Sepolia testnet. Manifold also
+  exposes server-side authentication APIs (Signature Grant and Authorization
+  Code Grant via oauth2.manifoldxyz.dev), a Studio Apps REST API
+  (apps.api.manifoldxyz.dev) for product and minting data, open-source Solidity
+  extension contracts for custom mint mechanics, and a Marketplace contract
+  powering auction and fixed-price listings. Gas fees are the only cost for
+  creators; Manifold charges no platform fees or royalties on sales.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - NFT
+  - Creator Tools
+  - Smart Contracts
+  - Blockchain
+  - Web3
+  - Ethereum
+  - ERC721
+  - ERC1155
+  - Royalties
+  - Marketplace
+  - Minting
+  - OpenSea
+  - Base
+  - Optimism
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+apis:
+  - aid: manifold:creator-core-contracts
+    name: Manifold Creator Core Smart Contracts
+    description: >-
+      Open-source Solidity smart contract framework for deploying ERC721 and
+      ERC1155 creator-owned NFT contracts. Provides minting, metadata
+      modification, transfer, burn, and on-chain royalty configuration. Supports
+      extension contracts for custom mint mechanics including allowlists,
+      time-locks, edition limits, and dynamic token URIs. Deployed across
+      Ethereum Mainnet, Base, Optimism, Shape, Apechain, and Sepolia.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.manifold.xyz/manifold-for-developers/smart-contracts/manifold-creator
+    baseURL: https://github.com/manifoldxyz/creator-core-solidity
+    tags:
+      - Smart Contracts
+      - Solidity
+      - ERC721
+      - ERC1155
+      - Open Source
+      - Extensions
+      - Minting
+    properties:
+      - type: Documentation
+        url: https://docs.manifold.xyz/manifold-for-developers/smart-contracts/manifold-creator
+      - type: GitHub
+        url: https://github.com/manifoldxyz/creator-core-solidity
+      - type: GitHub
+        url: https://github.com/manifoldxyz/creator-core-extensions-solidity
+      - type: ContractAddresses
+        url: https://docs.manifold.xyz/contracts
+
+  - aid: manifold:studio-apps-api
+    name: Manifold Studio Apps API
+    description: >-
+      REST API backing Manifold's Client SDK, providing product instance data
+      and purchase preparation information for minting dApps. Used to fetch
+      Edition and BlindMint product details, validate eligibility, compute costs,
+      and generate blockchain transaction data. Integrates with Coinbase and
+      CoinGecko for ETH/ERC-20 to USD price conversion.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.manifold.xyz/manifold-for-developers/client-sdk
+    baseURL: https://apps.api.manifoldxyz.dev
+    tags:
+      - REST
+      - Minting
+      - Products
+      - Editions
+      - NFT
+      - SDK
+    properties:
+      - type: Documentation
+        url: https://docs.manifold.xyz/manifold-for-developers/client-sdk
+      - type: GitHub
+        url: https://github.com/manifoldxyz/client-sdk
+      - type: DocsIndex
+        url: https://docs.manifold.xyz/llms.txt
+
+  - aid: manifold:oauth2-authentication-api
+    name: Manifold OAuth2 Authentication API
+    description: >-
+      Server-side session authentication API for validating wallet addresses of
+      authenticated Manifold clients. Supports two grant types: Signature Grant
+      (POST /verify to confirm a wallet signature session token) and
+      Authorization Code Grant (POST /token to exchange a one-time code for a
+      30-day access token). Enables backends to securely access and modify
+      private user data without exposing session keys client-side. Requires a
+      Developer App configured at the Manifold Developer Portal.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.manifold.xyz/manifold-for-developers/tools-and-apis/server-side-session-authentication
+    baseURL: https://oauth2.manifoldxyz.dev
+    tags:
+      - OAuth2
+      - Authentication
+      - Wallet
+      - Web3
+      - Session
+      - JWT
+    properties:
+      - type: Documentation
+        url: https://docs.manifold.xyz/manifold-for-developers/tools-and-apis/server-side-session-authentication
+      - type: AuthDocs
+        url: https://docs.manifold.xyz/manifold-for-developers/tools-and-apis/server-side-session-authentication/signature-grant
+      - type: AuthDocs
+        url: https://docs.manifold.xyz/manifold-for-developers/tools-and-apis/server-side-session-authentication/authorization-code-grant
+      - type: DeveloperPortal
+        url: https://docs.manifold.xyz/manifold-for-developers/resources/apps
+
+  - aid: manifold:royalty-registry
+    name: Manifold Royalty Registry
+    description: >-
+      On-chain smart contract registry that serves as a single source of truth
+      for NFT royalties across all major marketplaces. Provides
+      setRoyaltyLookupAddress() to override per-contract royalty destinations,
+      getRoyaltyLookupAddress() for lookups, and getRoyalty() / getRoyaltyView()
+      through the Royalty Engine to return recipients and amounts for any token
+      sale. Supports Rarible, Foundation, Manifold, and EIP-2981 standards.
+      Deployed on Ethereum, Polygon, Optimism, Arbitrum, Avalanche, and Binance
+      networks.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://royaltyregistry.xyz
+    baseURL: https://github.com/manifoldxyz/royalty-registry-solidity
+    tags:
+      - Royalties
+      - Smart Contracts
+      - EIP-2981
+      - Marketplace
+      - Solidity
+      - Open Source
+    properties:
+      - type: Website
+        url: https://royaltyregistry.xyz
+      - type: GitHub
+        url: https://github.com/manifoldxyz/royalty-registry-solidity
+      - type: GitHub
+        url: https://github.com/manifoldxyz/royalty-registry-client
+
+  - aid: manifold:marketplace-contracts
+    name: Manifold Marketplace Contracts
+    description: >-
+      Smart contract system powering Manifold Gallery listings and Marketplace
+      Widgets. Supports Auction Listings (single NFT with bidding, configurable
+      floor price, minimum bid increment, and extension interval) and Purchase
+      Listings (fixed-price with multi-edition support). Optional identity
+      verifier contract enforces access control. Mainnet contract at
+      0x3a3548e060be10c2614d0a4cb0c03cc9093fd799.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.manifold.xyz/manifold-for-developers/smart-contracts/marketplace
+    baseURL: https://github.com/manifoldxyz
+    tags:
+      - Marketplace
+      - Auction
+      - Smart Contracts
+      - NFT Sales
+      - Listings
+      - Solidity
+    properties:
+      - type: Documentation
+        url: https://docs.manifold.xyz/manifold-for-developers/smart-contracts/marketplace
+      - type: ContractAddresses
+        url: https://docs.manifold.xyz/contracts
+
+  - aid: manifold:claim-widgets
+    name: Manifold Claim Widgets
+    description: >-
+      JavaScript widget library for embedding NFT minting and claim flows into
+      any website or dApp. Served from claims.manifoldxyz.dev, current version
+      1.16.1. Configured via data-widget (claim type) and data-id (claim
+      identifier) HTML attributes. Integrates with the Connect Widget for wallet
+      connection and the Wallet Identity Widget for displaying seller details.
+      Supports allowlist (Merkle proof) gating and restricted token display.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.manifold.xyz/manifold-for-developers/resources/widgets/claim-widgets
+    baseURL: https://claims.manifoldxyz.dev
+    tags:
+      - Widgets
+      - JavaScript
+      - Minting
+      - Claim
+      - Allowlist
+      - Frontend
+    properties:
+      - type: Documentation
+        url: https://docs.manifold.xyz/manifold-for-developers/resources/widgets/claim-widgets
+      - type: Library
+        url: https://claims.manifoldxyz.dev/1.16.1/claimComplete.umd.min.js
+
+common:
+  - type: Website
+    url: https://manifold.xyz
+  - type: Studio
+    url: https://studio.manifold.xyz
+  - type: Documentation
+    url: https://docs.manifold.xyz
+  - type: DeveloperDocs
+    url: https://docs.manifold.xyz/manifold-for-developers
+  - type: GitHub
+    url: https://github.com/manifoldxyz
+  - type: HelpCenter
+    url: https://help.manifold.xyz/en/
+  - type: Blog
+    url: https://manifoldxyz.substack.com
+  - type: X
+    url: https://twitter.com/manifoldxyz
+  - type: ContractAddresses
+    url: https://docs.manifold.xyz/contracts
+  - type: DocsIndex
+    url: https://docs.manifold.xyz/llms.txt
+  - type: Plans
+    url: plans/manifold-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/manifold-rate-limits.yml
+  - type: FinOps
+    url: finops/manifold-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

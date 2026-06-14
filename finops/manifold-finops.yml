@@ -1,0 +1,141 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Manifold
+providerId: manifold
+publisherName: Manifold
+serviceCategory: Blockchain / Web3 Developer Tools
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - NFT
+  - Creator Tools
+  - Smart Contracts
+  - Blockchain
+  - Web3
+  - Ethereum
+  - Royalties
+  - Minting
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Gas Fees
+description: >-
+  FinOps framework alignment for the Manifold API and smart contract surface.
+  Manifold itself charges no platform subscription fees or royalties on sales;
+  the primary cost driver for creators and developers is Ethereum (or L2)
+  blockchain gas fees for contract deployment and minting transactions. A small
+  0.0008 ETH delivery fee applies per exclusive/allowlisted mint. Effective
+  FinOps practice on Manifold centers on gas cost visibility, timing optimization
+  (minting during low-congestion windows), and L2 network selection.
+principles:
+  - name: Visibility
+    description: >-
+      Make gas spending and allowlist mint delivery fees visible to engineering
+      and finance teams. Track ETH cost per contract deployment and per mint
+      across all supported networks.
+  - name: Allocation
+    description: >-
+      Tag every contract deployment and mint with the creator, collection, and
+      network so gas costs can be allocated to projects and campaigns.
+  - name: Optimization
+    description: >-
+      Monitor Ethereum gas prices via tools like Etherscan Gas Tracker and
+      schedule bulk mints and contract deployments during low-congestion windows.
+      Prefer Layer 2 networks (Base, Optimism) for lower gas costs when
+      Mainnet settlement is not required.
+  - name: Accountability
+    description: >-
+      Assign budget owners for each collection or drop campaign. Set gas budget
+      caps per project and alert when ETH reserves approach thresholds.
+domains:
+  - name: Smart Contract Deployment
+    description: >-
+      One-time gas cost to deploy an ERC721 or ERC1155 Creator Core contract.
+      Cost varies significantly by network (Mainnet vs. L2) and current
+      base fee.
+    costDrivers:
+      - network_selection
+      - base_fee_gwei
+      - contract_complexity
+    focusMapping:
+      ChargeCategory: Usage
+      ChargeClass: Consumption
+      ServiceCategory: Blockchain
+      ServiceSubcategory: Smart Contract Deployment
+  - name: NFT Minting
+    description: >-
+      Per-token gas cost for minting NFTs, batch minting, or burn-redeem
+      transactions. Scales with mint quantity and network congestion.
+    costDrivers:
+      - mint_quantity
+      - network_selection
+      - base_fee_gwei
+      - priority_fee_gwei
+    focusMapping:
+      ChargeCategory: Usage
+      ChargeClass: Consumption
+      ServiceCategory: Blockchain
+      ServiceSubcategory: Token Minting
+  - name: Allowlist Mint Delivery Fee
+    description: >-
+      0.0008 ETH per exclusive (allowlisted) mint charged by Manifold at
+      delivery to the collector. Predictable per-unit cost; budget based on
+      expected allowlist redemption volume.
+    costDrivers:
+      - allowlist_redemptions
+    focusMapping:
+      ChargeCategory: Usage
+      ChargeClass: Consumption
+      ServiceCategory: API
+      ServiceSubcategory: Platform Fee
+  - name: Royalty Registry Interactions
+    description: >-
+      Gas cost for setting or overriding royalty lookup addresses via the
+      Royalty Registry contract. Typically a one-time or infrequent cost per
+      collection.
+    costDrivers:
+      - royalty_overrides
+      - network_selection
+    focusMapping:
+      ChargeCategory: Usage
+      ChargeClass: Consumption
+      ServiceCategory: Blockchain
+      ServiceSubcategory: Registry Interaction
+focusFields:
+  required:
+    - BillingPeriodStart
+    - BillingPeriodEnd
+    - ChargeCategory
+    - ChargePeriodStart
+    - ChargePeriodEnd
+    - ProviderName
+    - PublisherName
+    - InvoiceIssuerName
+    - ServiceName
+    - ServiceCategory
+    - BilledCost
+    - EffectiveCost
+    - ListCost
+    - ContractedCost
+    - PricingCategory
+    - PricingUnit
+    - PricingQuantity
+  recommended:
+    - SubAccountId
+    - SubAccountName
+    - ResourceId
+    - ResourceName
+    - ResourceType
+    - Region
+    - Tags
+notes:
+  - Gas costs are denominated in ETH/Gwei and must be converted to USD for FOCUS reporting using the ETH price at time of transaction.
+  - L2 networks (Base, Optimism, Shape, Apechain) offer substantially lower gas costs than Ethereum Mainnet; network selection is the primary optimization lever.
+  - The 0.0008 ETH allowlist mint delivery fee is the only Manifold-imposed fee; all other costs are blockchain network fees.
+  - Monitor ETH price volatility and set USD-equivalent gas budgets, not fixed ETH amounts.

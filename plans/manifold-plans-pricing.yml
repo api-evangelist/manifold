@@ -1,0 +1,83 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Manifold
+providerId: manifold
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - NFT
+  - Creator Tools
+  - Smart Contracts
+  - Blockchain
+  - Web3
+  - Ethereum
+  - Royalties
+  - Minting
+description: >-
+  Manifold Studio is free for creators to use with no platform fees or royalties
+  on sales. The only costs are standard blockchain gas fees for deploying
+  contracts and minting NFTs. A small delivery fee (0.0008 ETH) applies for
+  exclusive/allowlist mints to collectors. The Royalty Registry and all
+  open-source smart contracts are free to use. The Studio Apps API and OAuth2
+  Authentication API are available to registered Developer App holders at no
+  additional charge beyond gas costs.
+plans:
+  - id: manifold-free
+    name: Free (Gas Only)
+    type: free
+    description: >-
+      Full access to Manifold Studio, Creator Core smart contract deployment,
+      minting, Royalty Registry, Marketplace Widgets, Claim Widgets, and the
+      Studio Apps API and OAuth2 Authentication API. No platform subscription
+      fee. Creators pay only standard Ethereum (or L2) gas fees for on-chain
+      transactions.
+    entries:
+      - label: Studio Access
+        description: Unlimited access to Manifold Studio for contract deployment and minting
+        name: studio_access
+        type: feature
+        metric: access
+        limit: unlimited
+        timeFrame: unlimited
+        geo: global
+        domains:
+          - https://studio.manifold.xyz
+          - https://apps.api.manifoldxyz.dev
+          - https://oauth2.manifoldxyz.dev
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Contract Deployments
+        description: Deploy ERC721 or ERC1155 creator-owned smart contracts; cost is gas only
+        name: contract_deployments
+        type: feature
+        metric: contracts
+        limit: unlimited
+        timeFrame: unlimited
+        geo: global
+        domains:
+          - https://studio.manifold.xyz
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Allowlist Mint Delivery Fee
+        description: >-
+          0.0008 ETH per exclusive (allowlisted) mint delivery to collector;
+          this is the only non-gas fee charged by Manifold
+        name: allowlist_mint_fee
+        type: usage
+        metric: mints
+        limit: unlimited
+        timeFrame: unlimited
+        geo: global
+        domains:
+          - https://studio.manifold.xyz
+        unit: 1
+        price: '0.0008 ETH per allowlisted mint'
+        userMultiplied: false
+references:
+  - name: Manifold Fees Help Article
+    url: https://help.manifold.xyz/en/articles/9574010-5-how-do-manifold-fees-work
+  - name: Manifold Developer Documentation
+    url: https://docs.manifold.xyz/manifold-for-developers

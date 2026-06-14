@@ -1,0 +1,88 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Manifold
+providerId: manifold
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - NFT
+  - Creator Tools
+  - Smart Contracts
+  - Blockchain
+  - Web3
+  - Ethereum
+  - Rate Limiting
+  - Quotas
+  - Throttling
+description: >-
+  Manifold does not publish explicit rate limit documentation for the Studio
+  Apps REST API (apps.api.manifoldxyz.dev) or the OAuth2 Authentication API
+  (oauth2.manifoldxyz.dev). On-chain interactions (smart contract calls) are
+  governed by blockchain network constraints rather than Manifold-imposed limits.
+  The Claim Widget CDN (claims.manifoldxyz.dev) follows standard CDN rate
+  policies. Scaffold values below reflect reasonable defaults for a Web3 backend
+  API; reconcile against any limits Manifold publishes in their Developer Portal.
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+  policy: RateLimit-Policy
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  serviceUnavailable: 503
+limits:
+  - tier: default
+    name: Studio Apps API Default
+    scope: api-key
+    metric: requests_per_minute
+    limit: 60
+    burst: 120
+    timeFrame: minute
+    applies:
+      - https://apps.api.manifoldxyz.dev
+    description: >-
+      Scaffold default for the Studio Apps REST API used by the Manifold Client
+      SDK. Actual limits are not publicly documented; reconcile with Manifold
+      Developer Portal terms.
+  - tier: default
+    name: OAuth2 Authentication API Default
+    scope: client-id
+    metric: requests_per_minute
+    limit: 30
+    burst: 60
+    timeFrame: minute
+    applies:
+      - https://oauth2.manifoldxyz.dev
+    description: >-
+      Scaffold default for the OAuth2 token and verify endpoints. Actual limits
+      are not publicly documented; reconcile with Manifold Developer Portal terms.
+  - tier: default
+    name: Claims CDN Default
+    scope: ip
+    metric: requests_per_minute
+    limit: 300
+    burst: 600
+    timeFrame: minute
+    applies:
+      - https://claims.manifoldxyz.dev
+    description: >-
+      Scaffold default for the Claim Widget static asset CDN. Standard CDN
+      caching and rate policies apply.
+recoveryStrategies:
+  - name: Exponential Backoff
+    description: >-
+      On HTTP 429 responses, wait the number of seconds indicated in the
+      Retry-After header, or back off exponentially (starting at 1s, doubling
+      up to 60s) if no header is present.
+  - name: Blockchain Retry
+    description: >-
+      For on-chain transaction failures due to network congestion, increase
+      gas price and resubmit after a short delay rather than retrying
+      immediately.
+notes:
+  - Manifold does not publish explicit API rate limit documentation as of June 2026.
+  - On-chain rate limits are determined by the Ethereum and L2 network, not Manifold.
+  - Replace scaffold values with any limits published in the Manifold Developer Portal.
