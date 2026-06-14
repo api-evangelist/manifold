@@ -122,6 +122,8 @@ apis:
         url: https://docs.manifold.xyz/manifold-for-developers/tools-and-apis/server-side-session-authentication/authorization-code-grant
       - type: DeveloperPortal
         url: https://docs.manifold.xyz/manifold-for-developers/resources/apps
+      - type: OpenAPI
+        url: openapi/manifold-oauth2-authentication-api.yml
 
   - aid: manifold:royalty-registry
     name: Manifold Royalty Registry

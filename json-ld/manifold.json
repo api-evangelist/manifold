@@ -1,0 +1,90 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "manifold": "https://manifold.xyz/vocab#",
+    "aid": "manifold:aid",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "humanURL": "schema:url",
+    "baseURL": "manifold:baseURL",
+    "tags": "schema:keywords",
+    "apis": "manifold:apis",
+    "common": "manifold:common",
+    "properties": "manifold:properties",
+    "type": "@type",
+    "Documentation": "schema:documentation",
+    "GitHub": "schema:codeRepository",
+    "Website": "schema:url",
+    "Studio": "manifold:studio",
+    "DeveloperDocs": "manifold:developerDocs",
+    "HelpCenter": "schema:helpCenter",
+    "Blog": "schema:blog",
+    "ContractAddresses": "manifold:contractAddresses",
+    "DocsIndex": "manifold:docsIndex",
+    "Plans": "manifold:plans",
+    "RateLimits": "manifold:rateLimits",
+    "FinOps": "manifold:finOps",
+    "AuthDocs": "manifold:authDocs",
+    "DeveloperPortal": "manifold:developerPortal",
+    "Library": "manifold:library",
+    "created": "schema:dateCreated",
+    "modified": "schema:dateModified",
+    "maintainers": "schema:maintainer",
+    "specificationVersion": "manifold:specificationVersion"
+  },
+  "@type": "schema:APIReference",
+  "@id": "https://manifold.xyz",
+  "name": "Manifold",
+  "description": "Manifold is an NFT creator tools platform that empowers artists and developers to deploy their own creator-owned smart contracts, mint NFTs, and build custom on-chain experiences without relying on platform-specific custody.",
+  "url": "https://manifold.xyz",
+  "apis": [
+    {
+      "@id": "manifold:creator-core-contracts",
+      "@type": "schema:WebAPI",
+      "name": "Manifold Creator Core Smart Contracts",
+      "url": "https://docs.manifold.xyz/manifold-for-developers/smart-contracts/manifold-creator",
+      "tags": ["Smart Contracts", "Solidity", "ERC721", "ERC1155", "Open Source", "Extensions", "Minting"]
+    },
+    {
+      "@id": "manifold:studio-apps-api",
+      "@type": "schema:WebAPI",
+      "name": "Manifold Studio Apps API",
+      "url": "https://docs.manifold.xyz/manifold-for-developers/client-sdk",
+      "tags": ["REST", "Minting", "Products", "Editions", "NFT", "SDK"]
+    },
+    {
+      "@id": "manifold:oauth2-authentication-api",
+      "@type": "schema:WebAPI",
+      "name": "Manifold OAuth2 Authentication API",
+      "url": "https://docs.manifold.xyz/manifold-for-developers/tools-and-apis/server-side-session-authentication",
+      "tags": ["OAuth2", "Authentication", "Wallet", "Web3", "Session", "JWT"]
+    },
+    {
+      "@id": "manifold:royalty-registry",
+      "@type": "schema:WebAPI",
+      "name": "Manifold Royalty Registry",
+      "url": "https://royaltyregistry.xyz",
+      "tags": ["Royalties", "Smart Contracts", "EIP-2981", "Marketplace", "Solidity", "Open Source"]
+    },
+    {
+      "@id": "manifold:marketplace-contracts",
+      "@type": "schema:WebAPI",
+      "name": "Manifold Marketplace Contracts",
+      "url": "https://docs.manifold.xyz/manifold-for-developers/smart-contracts/marketplace",
+      "tags": ["Marketplace", "Auction", "Smart Contracts", "NFT Sales", "Listings", "Solidity"]
+    },
+    {
+      "@id": "manifold:claim-widgets",
+      "@type": "schema:WebAPI",
+      "name": "Manifold Claim Widgets",
+      "url": "https://docs.manifold.xyz/manifold-for-developers/resources/widgets/claim-widgets",
+      "tags": ["Widgets", "JavaScript", "Minting", "Claim", "Allowlist", "Frontend"]
+    }
+  ],
+  "provider": {
+    "@type": "schema:Organization",
+    "name": "Manifold",
+    "url": "https://manifold.xyz"
+  }
+}

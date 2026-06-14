@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://manifold.xyz/schemas/oauth2-authentication",
+  "title": "Manifold OAuth2 Authentication API Schemas",
+  "description": "JSON Schema definitions for the Manifold OAuth2 Authentication API request and response payloads.",
+  "$defs": {
+    "VerifyRequest": {
+      "$id": "#/VerifyRequest",
+      "title": "VerifyRequest",
+      "description": "Request body for POST /verify (Signature Grant). Provides the session token obtained from the Manifold frontend client.",
+      "type": "object",
+      "required": ["token"],
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "The session token retrieved from the Manifold Ethereum Provider or the `m-authenticated` event on the frontend."
+        }
+      },
+      "additionalProperties": false
+    },
+    "VerifyResponse": {
+      "$id": "#/VerifyResponse",
+      "title": "VerifyResponse",
+      "description": "Successful response from POST /verify containing the authenticated wallet address.",
+      "type": "object",
+      "properties": {
+        "unwrappedJWT": {
+          "type": "object",
+          "description": "The decoded JWT payload.",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "The Ethereum wallet address of the authenticated user.",
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "examples": ["0xAbCd1234567890AbCd1234567890AbCd12345678"]
+            }
+          },
+          "required": ["address"]
+        }
+      },
+      "required": ["unwrappedJWT"]
+    },
+    "TokenRequest": {
+      "$id": "#/TokenRequest",
+      "title": "TokenRequest",
+      "description": "Request body for POST /token (Authorization Code Grant). Exchanges a one-time code for a long-lived access token.",
+      "type": "object",
+      "required": ["clientId", "code", "clientSecret", "signature"],
+      "properties": {
+        "clientId": {
+          "type": "string",
+          "description": "The client ID for the Developer App, obtained from the Manifold Developer Portal."
+        },
+        "code": {
+          "type": "string",
+          "description": "The one-time authorization code received after the user completes the OAuth2 authorization flow."
+        },
+        "clientSecret": {
+          "type": "string",
+          "description": "The client secret for the Developer App, obtained from the Manifold Developer Portal."
+        },
+        "signature": {
+          "type": "string",
+          "description": "A cryptographic signature used to authenticate the token exchange request."
+        }
+      },
+      "additionalProperties": false
+    },
+    "TokenResponse": {
+      "$id": "#/TokenResponse",
+      "title": "TokenResponse",
+      "description": "Successful response from POST /token containing a 30-day access token.",
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "type": "string",
+          "description": "A 30-day access token for server-side access to private Manifold user data."
+        },
+        "expires_in": {
+          "type": "integer",
+          "description": "Token lifetime in seconds. Typically 2592000 (30 days).",
+          "example": 2592000
+        }
+      },
+      "required": ["access_token", "expires_in"]
+    },
+    "ErrorResponse": {
+      "$id": "#/ErrorResponse",
+      "title": "ErrorResponse",
+      "description": "Error response returned when authentication or validation fails.",
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Machine-readable error code."
+        },
+        "error_description": {
+          "type": "string",
+          "description": "Human-readable description of the error."
+        }
+      }
+    }
+  }
+}
