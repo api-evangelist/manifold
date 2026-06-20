@@ -17,7 +17,7 @@ description: >-
   extension contracts for custom mint mechanics, and a Marketplace contract
   powering auction and fixed-price listings. Gas fees are the only cost for
   creators; Manifold charges no platform fees or royalties on sales.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - NFT
   - Creator Tools
@@ -46,7 +46,7 @@ apis:
       extension contracts for custom mint mechanics including allowlists,
       time-locks, edition limits, and dynamic token URIs. Deployed across
       Ethereum Mainnet, Base, Optimism, Shape, Apechain, and Sepolia.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.manifold.xyz/manifold-for-developers/smart-contracts/manifold-creator
     baseURL: https://github.com/manifoldxyz/creator-core-solidity
     tags:
@@ -75,7 +75,7 @@ apis:
       Edition and BlindMint product details, validate eligibility, compute costs,
       and generate blockchain transaction data. Integrates with Coinbase and
       CoinGecko for ETH/ERC-20 to USD price conversion.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.manifold.xyz/manifold-for-developers/client-sdk
     baseURL: https://apps.api.manifoldxyz.dev
     tags:
@@ -103,7 +103,7 @@ apis:
       30-day access token). Enables backends to securely access and modify
       private user data without exposing session keys client-side. Requires a
       Developer App configured at the Manifold Developer Portal.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.manifold.xyz/manifold-for-developers/tools-and-apis/server-side-session-authentication
     baseURL: https://oauth2.manifoldxyz.dev
     tags:
@@ -136,7 +136,7 @@ apis:
       sale. Supports Rarible, Foundation, Manifold, and EIP-2981 standards.
       Deployed on Ethereum, Polygon, Optimism, Arbitrum, Avalanche, and Binance
       networks.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://royaltyregistry.xyz
     baseURL: https://github.com/manifoldxyz/royalty-registry-solidity
     tags:
@@ -163,7 +163,7 @@ apis:
       Listings (fixed-price with multi-edition support). Optional identity
       verifier contract enforces access control. Mainnet contract at
       0x3a3548e060be10c2614d0a4cb0c03cc9093fd799.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.manifold.xyz/manifold-for-developers/smart-contracts/marketplace
     baseURL: https://github.com/manifoldxyz
     tags:
@@ -188,7 +188,7 @@ apis:
       identifier) HTML attributes. Integrates with the Connect Widget for wallet
       connection and the Wallet Identity Widget for displaying seller details.
       Supports allowlist (Merkle proof) gating and restricted token display.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.manifold.xyz/manifold-for-developers/resources/widgets/claim-widgets
     baseURL: https://claims.manifoldxyz.dev
     tags:
