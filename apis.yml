@@ -205,6 +205,8 @@ apis:
         url: https://claims.manifoldxyz.dev/1.16.1/claimComplete.umd.min.js
 
 common:
+  - type: DomainSecurity
+    url: security/manifold-domain-security.yml
   - type: Website
     url: https://manifold.xyz
   - type: Studio
