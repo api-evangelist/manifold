@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: Manifold OAuth2 Authentication Authorization Code Grant API
+  description: 'Server-side session authentication API for validating wallet addresses of authenticated Manifold clients. Supports two grant types: Signature Grant (POST /verify to confirm a wallet signature session token) and Authorization Code Grant (POST /token to exchange a one-time code for a 30-day access token). Enables backends to securely access and modify private user data without exposing session keys client-side. Requires a Developer App configured at the Manifold Developer Portal.'
+  version: 1.0.0
+  contact:
+    name: Manifold
+    url: https://manifold.xyz
+  license:
+    name: MIT
+servers:
+- url: https://oauth2.manifoldxyz.dev
+  description: Manifold OAuth2 Authentication Server
+tags:
+- name: Authorization Code Grant
+  description: Exchange a one-time authorization code for a long-lived access token allowing server-side access to private user data.
+paths:
+  /token:
+    post:
+      operationId: exchangeAuthorizationCode
+      summary: Exchange an authorization code for an access token
+      description: Exchanges a one-time authorization code (obtained after a user completes the Manifold OAuth2 flow) for a 30-day access token. The access token can then be used server-side to read and modify private user data. Requires credentials from a Developer App configured at the Manifold Developer Portal.
+      tags:
+      - Authorization Code Grant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRequest'
+            example:
+              clientId: my-app-client-id
+              code: one-time-authorization-code
+              clientSecret: my-app-client-secret
+              signature: 0xsignature...
+      responses:
+        '200':
+          description: Authorization code accepted; access token returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+              example:
+                access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                expires_in: 2592000
+        '400':
+          description: Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Invalid client credentials or signature.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Authorization code already used or expired.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: A 30-day access token for server-side access to private user data.
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds (typically 2592000 for 30 days).
+          example: 2592000
+    TokenRequest:
+      type: object
+      required:
+      - clientId
+      - code
+      - clientSecret
+      - signature
+      properties:
+        clientId:
+          type: string
+          description: The client ID for your Developer App, obtained from the Manifold Developer Portal.
+        code:
+          type: string
+          description: The one-time authorization code received after the user completes the OAuth2 authorization flow.
+        clientSecret:
+          type: string
+          description: The client secret for your Developer App, obtained from the Manifold Developer Portal.
+        signature:
+          type: string
+          description: A cryptographic signature used to authenticate the token exchange request.
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Machine-readable error code.
+        error_description:
+          type: string
+          description: Human-readable description of the error.
