@@ -1,0 +1,16 @@
+{
+  "provider": "manifold",
+  "sources": [
+    "manifold-authorization-code-grant-api-openapi.yml",
+    "manifold-signature-grant-api-openapi.yml"
+  ],
+  "outputs": [
+    "manifold-authorization-code-grant-api-openapi.yml",
+    "manifold-signature-grant-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
