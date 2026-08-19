@@ -1,0 +1,252 @@
+{
+  "item": [
+    {
+      "id": "800e3179-cde1-4200-9097-15d30e1be19b",
+      "name": "Authorization Code Grant",
+      "description": {
+        "content": "Exchange a one-time authorization code for a long-lived access token allowing server-side access to private user data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f676211-0d60-4150-8e0a-12168d55a51c",
+          "name": "Exchange an authorization code for an access token",
+          "request": {
+            "name": "Exchange an authorization code for an access token",
+            "description": {
+              "content": "Exchanges a one-time authorization code (obtained after a user completes the Manifold OAuth2 flow) for a 30-day access token. The access token can then be used server-side to read and modify private user data. Requires credentials from a Developer App configured at the Manifold Developer Portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientId\": \"<string>\",\n  \"code\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"signature\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f064a0f5-5276-4be5-9a55-86f2f73e7bb2",
+              "name": "Authorization code accepted; access token returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"my-app-client-id\",\n  \"code\": \"one-time-authorization-code\",\n  \"clientSecret\": \"my-app-client-secret\",\n  \"signature\": \"0xsignature...\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n  \"expires_in\": 2592000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2fb994b-d155-4e06-8f4e-a02c0c5b2dbe",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"my-app-client-id\",\n  \"code\": \"one-time-authorization-code\",\n  \"clientSecret\": \"my-app-client-secret\",\n  \"signature\": \"0xsignature...\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "906f1507-c533-4ec2-89ee-9eb4d0813b7c",
+              "name": "Invalid client credentials or signature.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"my-app-client-id\",\n  \"code\": \"one-time-authorization-code\",\n  \"clientSecret\": \"my-app-client-secret\",\n  \"signature\": \"0xsignature...\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe68af1b-f989-4044-af32-62d27c2efa4f",
+              "name": "Authorization code already used or expired.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"my-app-client-id\",\n  \"code\": \"one-time-authorization-code\",\n  \"clientSecret\": \"my-app-client-secret\",\n  \"signature\": \"0xsignature...\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://oauth2.manifoldxyz.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "edfa6e9f-f537-4418-a396-680f5b1815b6",
+    "name": "Manifold OAuth2 Authentication Authorization Code Grant API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Server-side session authentication API for validating wallet addresses of authenticated Manifold clients. Supports two grant types: Signature Grant (POST /verify to confirm a wallet signature session token) and Authorization Code Grant (POST /token to exchange a one-time code for a 30-day access token). Enables backends to securely access and modify private user data without exposing session keys client-side. Requires a Developer App configured at the Manifold Developer Portal.\n\nContact Support:\n Name: Manifold",
+      "type": "text/plain"
+    }
+  }
+}

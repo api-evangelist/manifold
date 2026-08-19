@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Manifold OAuth2 Authentication Authorization Code Grant Signature Grant API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signature Grant",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify a Signature Grant session token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://oauth2.manifoldxyz.dev/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates a session token obtained from the Manifold frontend client (via the Manifold Ethereum Provider or the `m-authenticated` event). Returns the wallet address associated with the authenticated session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
