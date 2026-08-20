@@ -37,6 +37,21 @@ tags:
   - Blockchain
   - Web3
   - Ethereum
+  - ERC-721
+  - ERC-1155
+  - Royalties
+  - Marketplace
+  - Minting
+  - OpenSea
+  - Base
+  - Optimism
+tags_raw:
+  - NFT
+  - Creator Tools
+  - Smart Contracts
+  - Blockchain
+  - Web3
+  - Ethereum
   - ERC721
   - ERC1155
   - Royalties
@@ -60,6 +75,14 @@ apis:
   humanURL: https://docs.manifold.xyz/manifold-for-developers/smart-contracts/manifold-creator
   baseURL: https://github.com/manifoldxyz/creator-core-solidity
   tags:
+  - Smart Contracts
+  - Solidity
+  - ERC-721
+  - ERC-1155
+  - Open-Source
+  - Extensions
+  - Minting
+  tags_raw:
   - Smart Contracts
   - Solidity
   - ERC721
@@ -89,6 +112,13 @@ apis:
   tags:
   - REST
   - Minting
+  - Product
+  - Editions
+  - NFT
+  - SDK
+  tags_raw:
+  - REST
+  - Minting
   - Products
   - Editions
   - NFT
@@ -112,6 +142,13 @@ apis:
   humanURL: https://royaltyregistry.xyz
   baseURL: https://github.com/manifoldxyz/royalty-registry-solidity
   tags:
+  - Royalties
+  - Smart Contracts
+  - EIP-2981
+  - Marketplace
+  - Solidity
+  - Open-Source
+  tags_raw:
   - Royalties
   - Smart Contracts
   - EIP-2981
