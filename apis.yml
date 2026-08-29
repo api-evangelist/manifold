@@ -17,6 +17,18 @@ description: >-
   extension contracts for custom mint mechanics, and a Marketplace contract
   powering auction and fixed-price listings. Gas fees are the only cost for
   creators; Manifold charges no platform fees or royalties on sales.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
