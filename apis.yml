@@ -186,6 +186,13 @@ apis:
   baseURL: https://github.com/manifoldxyz
   tags:
   - Marketplace
+  - Auctions
+  - Smart Contracts
+  - NFT Sales
+  - Listings
+  - Solidity
+  tags_raw:
+  - Marketplace
   - Auction
   - Smart Contracts
   - NFT Sales
