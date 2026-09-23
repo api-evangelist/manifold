@@ -1,8 +1,7 @@
 {
   "provider": "manifold",
   "sources": [
-    "manifold-authorization-code-grant-api-openapi.yml",
-    "manifold-signature-grant-api-openapi.yml"
+    "_original/manifold-oauth2-authentication-api.yml"
   ],
   "outputs": [
     "manifold-authorization-code-grant-api-openapi.yml",
@@ -11,6 +10,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "manifold-oauth2-authentication-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "manifold-authorization-code-grant-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "manifold-signature-grant-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
