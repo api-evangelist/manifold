@@ -48,6 +48,16 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    VerifyResponse:
+      type: object
+      properties:
+        unwrappedJWT:
+          type: object
+          properties:
+            address:
+              type: string
+              description: The Ethereum wallet address of the authenticated user.
+              example: 0xAbCd1234...
     ErrorResponse:
       type: object
       properties:
@@ -65,13 +75,3 @@ components:
         token:
           type: string
           description: The session token retrieved from the Manifold frontend via the Manifold Ethereum Provider or the `m-authenticated` event.
-    VerifyResponse:
-      type: object
-      properties:
-        unwrappedJWT:
-          type: object
-          properties:
-            address:
-              type: string
-              description: The Ethereum wallet address of the authenticated user.
-              example: 0xAbCd1234...

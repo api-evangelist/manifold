@@ -19,15 +19,23 @@ description: >-
   creators; Manifold charges no platform fees or royalties on sales.
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - manifoldxyz/client-sdk
+    - manifoldxyz/creator-core-extensions-solidity
+    - manifoldxyz/creator-core-solidity
+    - manifoldxyz/royalty-registry-client
+    - manifoldxyz/royalty-registry-solidity
+  open_source: unknown
   commercial: true
   callable_host: true
   label: Hosted service · you call their endpoint
-  confidence: high
+  confidence: low
   source:
   - openapi
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -91,7 +99,7 @@ apis:
   - Solidity
   - ERC-721
   - ERC-1155
-  - Open-Source
+  - Open Source
   - Extensions
   - Minting
   tags_raw:
@@ -102,6 +110,7 @@ apis:
   - Open Source
   - Extensions
   - Minting
+  - Open-Source
   properties:
   - type: Documentation
     url: https://docs.manifold.xyz/manifold-for-developers/smart-contracts/manifold-creator
@@ -159,7 +168,7 @@ apis:
   - EIP-2981
   - Marketplace
   - Solidity
-  - Open-Source
+  - Open Source
   tags_raw:
   - Royalties
   - Smart Contracts
@@ -167,6 +176,7 @@ apis:
   - Marketplace
   - Solidity
   - Open Source
+  - Open-Source
   properties:
   - type: Website
     url: https://royaltyregistry.xyz

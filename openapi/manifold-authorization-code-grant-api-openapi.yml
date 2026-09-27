@@ -63,25 +63,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Machine-readable error code.
-        error_description:
-          type: string
-          description: Human-readable description of the error.
-    TokenResponse:
-      type: object
-      properties:
-        access_token:
-          type: string
-          description: A 30-day access token for server-side access to private user data.
-        expires_in:
-          type: integer
-          description: Token lifetime in seconds (typically 2592000 for 30 days).
-          example: 2592000
     TokenRequest:
       type: object
       required:
@@ -102,3 +83,22 @@ components:
         signature:
           type: string
           description: A cryptographic signature used to authenticate the token exchange request.
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Machine-readable error code.
+        error_description:
+          type: string
+          description: Human-readable description of the error.
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: A 30-day access token for server-side access to private user data.
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds (typically 2592000 for 30 days).
+          example: 2592000
