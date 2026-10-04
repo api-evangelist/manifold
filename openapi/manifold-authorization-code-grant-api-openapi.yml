@@ -63,16 +63,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    TokenResponse:
-      type: object
-      properties:
-        access_token:
-          type: string
-          description: A 30-day access token for server-side access to private user data.
-        expires_in:
-          type: integer
-          description: Token lifetime in seconds (typically 2592000 for 30 days).
-          example: 2592000
     ErrorResponse:
       type: object
       properties:
@@ -102,3 +92,13 @@ components:
         signature:
           type: string
           description: A cryptographic signature used to authenticate the token exchange request.
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: A 30-day access token for server-side access to private user data.
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds (typically 2592000 for 30 days).
+          example: 2592000
