@@ -48,23 +48,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Machine-readable error code.
-        error_description:
-          type: string
-          description: Human-readable description of the error.
-    VerifyRequest:
-      type: object
-      required:
-      - token
-      properties:
-        token:
-          type: string
-          description: The session token retrieved from the Manifold frontend via the Manifold Ethereum Provider or the `m-authenticated` event.
     VerifyResponse:
       type: object
       properties:
@@ -75,3 +58,20 @@ components:
               type: string
               description: The Ethereum wallet address of the authenticated user.
               example: 0xAbCd1234...
+    VerifyRequest:
+      type: object
+      required:
+      - token
+      properties:
+        token:
+          type: string
+          description: The session token retrieved from the Manifold frontend via the Manifold Ethereum Provider or the `m-authenticated` event.
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Machine-readable error code.
+        error_description:
+          type: string
+          description: Human-readable description of the error.
